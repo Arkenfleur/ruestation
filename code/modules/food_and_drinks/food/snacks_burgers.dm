@@ -15,7 +15,7 @@
 
 /obj/item/reagent_containers/food/snacks/burger/plain/Initialize()
 	. = ..()
-	if(prob(1))
+	if(prob(20))
 		new/obj/effect/particle_effect/smoke(get_turf(src))
 		playsound(src, 'sound/effects/smoke.ogg', 50, TRUE)
 		visible_message("<span class='warning'>Oh, ye gods! [src] is ruined! But what if...?</span>")
@@ -281,3 +281,74 @@
 	bonus_reagents = list("nutriment" = 8, "vitamin" = 1)
 	tastes = list("bun" = 4, "bacon" = 2)
 	foodtype = GRAIN | MEAT
+
+/obj/item/reagent_containers/food/snacks/burger/princessburger
+	name = "princess burger"
+	desc = "So gooey and slippery, it's impossible to actually take a bite."
+	icon_state = "fishburger"
+	bonus_reagents = list("nutriment" = 6, "vitamin" = 6, "omnizine" = 5)
+	grind_results = list("lube" = 5, "omnizine" = 1)
+	tastes = list("bun" = 4, "cherry" = 4, "sin" = 2)
+	color = "#FF91AF"
+	foodtype = FRUIT | GROSS
+
+/obj/item/reagent_containers/food/snacks/burger/princessburger/attack(mob/living/M, mob/user, def_zone)
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+	if(!eatverb)
+		eatverb = pick("bite","chew","nibble","gnaw","gobble","chomp")
+	if(!reagents.total_volume)						//Shouldn't be needed but it checks to see if it has anything left in it.
+		to_chat(user, "<span class='notice'>None of [src] left, oh no!</span>")
+		qdel(src)
+		return 0
+	if(iscarbon(M))
+		if(!canconsume(M, user))
+			return 0
+
+		var/fullness = M.nutrition + 10
+		for(var/datum/reagent/consumable/C in M.reagents.reagent_list) //we add the nutrition value of what we're currently digesting
+			fullness += C.nutriment_factor * C.volume / C.metabolization_rate
+
+		if(M == user)								//If you're eating it yourself.
+			if(fullness <= 50)
+				to_chat(M, "<span class='warning'>You hungrily go to [eatverb] some of \the [src], but it slips down your throat instantly!</span>")
+			else if(fullness > 50 && fullness < 150)
+				to_chat(M, "<span class='warning'>You hungrily try to [eatverb] \the [src], but it slips down your throat instantly!</span>")
+			else if(fullness > 150 && fullness < 500)
+				to_chat(M, "<span class='warning'>You try to [eatverb] \the [src], but it slips down your throat instantly!</span>")
+			else if(fullness > 500 && fullness < 600)
+				to_chat(M, "<span class='warning'>You unwillingly try to [eatverb] a bit of \the [src], but it slips down your throat instantly!</span>")
+			else if(fullness > (600 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
+				to_chat(M, "<span class='warning'>Despite your fullness, \the [src] easily slips straight down your throat! Guh...</span>")
+			if(M.has_trait(TRAIT_VORACIOUS))
+				M.changeNext_move(CLICK_CD_MELEE * 0.5) //nom nom nom
+		else
+			if(!isbrain(M))		//If you're feeding it to someone else.
+				if(fullness <= (600 * (1 + M.overeatduration / 1000)))
+					M.visible_message("<span class='danger'>[user] attempts to make [M] swallow [src].</span>", \
+										"<span class='userdanger'>[user] attempts to make [M] swallow [src].</span>")
+				else
+					M.visible_message("<span class='danger'>[M] is full, but [user] attempts to force [src] down [M]'s throat anyway!</span>", \
+										"<span class='userdanger'>[M] is full, but [user] attempts to force [src] down [M]'s throat anyway!</span>")
+
+				if(!do_mob(user, M))
+					return
+				add_logs(user, M, "fed", reagents.log_list())
+				M.visible_message("<span class='danger'>[user] forces [M] to swallow [src]!</span>", \
+									"<span class='userdanger'>[user] forces [M] to swallow [src]!</span>")
+
+			else
+				to_chat(user, "<span class='warning'>[M] doesn't seem to have a mouth!</span>")
+				return
+
+		if(reagents)								//Handle ingestion of the reagent.
+			playsound(M.loc,'sound/items/gulp.ogg', rand(10,50), 1)
+			if(reagents.total_volume)
+				var/fraction = reagents.total_volume
+				reagents.reaction(M, INGEST, fraction)
+				reagents.trans_to(M, reagents.total_volume)
+				On_Consume()
+				checkLiked(fraction, M)
+				return 1
+
+	return 0

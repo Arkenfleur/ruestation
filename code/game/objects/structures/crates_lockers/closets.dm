@@ -207,9 +207,7 @@
 /obj/structure/closet/attackby(obj/item/W, mob/user, params)
 	if(user in src)
 		return
-	if(src.tool_interact(W,user))
-		return 1 // No afterattack
-	else
+	if(!src.tool_interact(W,user))
 		return ..()
 
 /obj/structure/closet/proc/tool_interact(obj/item/W, mob/user)//returns TRUE if attackBy call shouldnt be continued (because tool was used/closet was of wrong type), FALSE if otherwise

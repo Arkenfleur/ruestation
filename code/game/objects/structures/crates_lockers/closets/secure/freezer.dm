@@ -14,7 +14,7 @@
 
 /obj/structure/closet/secure_closet/freezer/kitchen/PopulateContents()
 	..()
-	for(var/i = 0, i < 3, i++)
+	for(var/i = 0, i < 5, i++)
 		new /obj/item/reagent_containers/food/condiment/flour(src)
 	new /obj/item/reagent_containers/food/condiment/rice(src)
 	new /obj/item/reagent_containers/food/condiment/sugar(src)
@@ -41,8 +41,11 @@
 
 /obj/structure/closet/secure_closet/freezer/meat/PopulateContents()
 	..()
+	new /obj/item/reagent_containers/glass/beaker/cryoxadone(src)
+	new /obj/item/reagent_containers/syringe(src)
 	for(var/i = 0, i < 4, i++)
-		new /obj/item/reagent_containers/food/snacks/meat/slab/monkey(src)
+		new /obj/item/reagent_containers/food/snacks/meat/slab/synthmeat(src)
+
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
 
@@ -74,6 +77,8 @@
 	desc = "Contains pies filled with cream and/or custard, you sickos."
 	req_access = list(ACCESS_THEATRE)
 
-/obj/structure/closet/secure_closet/freezer/pie/PopulateContents()
+/obj/structure/closet/secure_closet/freezer/cream_pie/PopulateContents()
 	..()
-	new /obj/item/reagent_containers/food/snacks/pie/cream(src)
+	new /obj/item/stack/sheet/mineral/bananium/fifteen(src)
+	for(var/i = 0, i < 3, i++)
+		new /obj/item/reagent_containers/food/snacks/pie/cream(src)

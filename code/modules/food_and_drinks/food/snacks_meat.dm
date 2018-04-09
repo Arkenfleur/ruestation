@@ -96,8 +96,8 @@
 	foodtype = MEAT | ALCOHOL
 
 /obj/item/reagent_containers/food/snacks/faggot
-	name = "faggot"
-	desc = "A great meal all round. Not a cord of wood."
+	name = "meatball"
+	desc = "It's a meatball. It makes meatball moves."
 	icon_state = "faggot"
 	list_reagents = list("nutriment" = 4, "vitamin" = 1)
 	filling_color = "#800000"

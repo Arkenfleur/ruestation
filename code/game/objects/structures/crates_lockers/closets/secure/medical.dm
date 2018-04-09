@@ -33,6 +33,18 @@
 	for(var/i in 1 to 3)
 		new /obj/item/clothing/mask/breath/medical(src)
 
+/obj/structure/closet/secure_closet/medical2_robo
+	name = "anesthetic closet"
+	desc = "Used to knock people out."
+	req_access = list(ACCESS_ROBOTICS)
+
+/obj/structure/closet/secure_closet/medical2_robo/PopulateContents()
+	..()
+	for(var/i in 1 to 3)
+		new /obj/item/tank/internals/anesthetic(src)
+	for(var/i in 1 to 3)
+		new /obj/item/clothing/mask/breath/medical(src)
+
 /obj/structure/closet/secure_closet/medical3
 	name = "medical doctor's locker"
 	req_access = list(ACCESS_SURGERY)
@@ -94,6 +106,7 @@
 
 /obj/structure/closet/secure_closet/chemical/PopulateContents()
 	..()
+	new /obj/item/reagent_containers/food/drinks/bottle/holywater(src)
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/box/medsprays(src)

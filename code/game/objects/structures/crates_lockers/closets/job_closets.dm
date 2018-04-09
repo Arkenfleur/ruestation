@@ -243,6 +243,7 @@
 	icon_door = "black"
 
 /obj/structure/closet/wardrobe/robotics_black/PopulateContents()
+	new /obj/item/clothing/suit/fire/firefighter(src)
 	new /obj/item/clothing/glasses/hud/diagnostic(src)
 	new /obj/item/clothing/glasses/hud/diagnostic(src)
 	new /obj/item/clothing/under/rank/roboticist(src)

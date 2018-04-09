@@ -259,6 +259,9 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	recipes = GLOB.bananium_recipes
 	. = ..()
 
+/obj/item/stack/sheet/mineral/bananium/fifteen
+	amount = 15
+
 /*
  * Titanium
  */
