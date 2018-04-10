@@ -98,6 +98,8 @@
 	cooldown_low = 200
 	cooldown_high = 400
 	uses = -1
+	name = "healing gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Regenerates the host's injuries."
 	icon_state = "health"
 	mind_control_uses = 3
 	mind_control_duration = 3000
@@ -112,6 +114,8 @@
 	cooldown_low = 600
 	cooldown_high = 1200
 	uses = -1
+	name = "slime gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Generates slime inside the host."
 	icon_state = "slime"
 	mind_control_uses = 1
 	mind_control_duration = 2400
@@ -133,6 +137,8 @@
 	cooldown_low = 400
 	cooldown_high = 700
 	uses = -1
+	name = "mindshock gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Causes the host to emit psychic waves."
 	icon_state = "mindshock"
 	mind_control_uses = 1
 	mind_control_duration = 6000
@@ -159,6 +165,8 @@
 	cooldown_low = 900
 	cooldown_high = 1800
 	uses = -1
+	name = "identity gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Occasionally distorts the host's body structure."
 	human_only = TRUE
 	icon_state = "species"
 	mind_control_uses = 5
@@ -174,6 +182,8 @@
 	cooldown_low = 1800
 	cooldown_high = 2400
 	uses = 1
+	name = "stretch gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Grants the ability to squeeze through vents."
 	icon_state = "vent"
 	mind_control_uses = 4
 	mind_control_duration = 1800
@@ -186,6 +196,8 @@
 	cooldown_low = 1800
 	cooldown_high = 2400
 	uses = 1
+	name = "viral gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Makes the host an asymptomatic disease carrier."
 	icon_state = "viral"
 	mind_control_uses = 1
 	mind_control_duration = 1800
@@ -220,6 +232,8 @@
 	cooldown_low = 800
 	cooldown_high = 1200
 	uses = 5
+	name = "trauma gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Permanently damages the host's brain functions."
 	icon_state = "emp"
 	mind_control_uses = 3
 	mind_control_duration = 1800
@@ -238,6 +252,8 @@
 	cooldown_low = 450
 	cooldown_high = 900
 	uses = -1
+	name = "spider gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Generates spiders inside the host."
 	icon_state = "spider"
 	mind_control_uses = 2
 	mind_control_duration = 2400
@@ -252,6 +268,8 @@
 	cooldown_low = 300
 	cooldown_high = 400
 	uses = -1
+	name = "egg gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Causes the host to lay acidic eggs."
 	icon_state = "egg"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
@@ -267,6 +285,8 @@
 	cooldown_low = 800
 	cooldown_high = 1200
 	uses = -1
+	name = "electric gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Generates electricity inside the host."
 	mind_control_uses = 2
 	mind_control_duration = 900
 
@@ -292,6 +312,8 @@
 	cooldown_low = 50
 	cooldown_high = 50
 	uses = -1
+	name = "chemical gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Generates random chemicals inside the host."
 	mind_control_uses = 3
 	mind_control_duration = 1200
 	var/list/possible_reagents = list()
@@ -318,6 +340,8 @@
 	cooldown_low = 1200
 	cooldown_high = 1800
 	uses = -1
+	name = "plasma gland"
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Generates plasma inside the host."
 	mind_control_uses = 1
 	mind_control_duration = 800
 
