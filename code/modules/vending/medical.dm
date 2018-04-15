@@ -84,5 +84,5 @@
 /obj/item/vending_refill/medical/organ
 	machine_name = "Organs R Us"
 	icon_state = "refill_medical"
-	charges = list(18, 12, 3)// of 68 standard, 36 contraband, 9 premium
-	init_charges = list(18, 12, 3)
+	charges = list(18, 11, 3)// of 68 standard, 36 contraband, 9 premium
+	init_charges = list(18, 11, 3)

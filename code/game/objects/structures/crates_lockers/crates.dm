@@ -107,6 +107,7 @@
 
 /obj/structure/closet/crate/freezer/surplus_limbs/PopulateContents()
 	. = ..()
+	new /obj/item/twohanded/required/chainsaw(src)
 	new /obj/item/bodypart/l_arm/robot/surplus(src)
 	new /obj/item/bodypart/l_arm/robot/surplus(src)
 	new /obj/item/bodypart/r_arm/robot/surplus(src)

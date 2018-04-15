@@ -291,8 +291,8 @@
 	var/mode = MIND_DEVICE_MESSAGE
 
 /obj/item/device/abductor/mind_device/attack_self(mob/user)
-	if(!ScientistCheck(user))
-		return
+	// if(!ScientistCheck(user))
+	//	return
 
 	if(mode == MIND_DEVICE_MESSAGE)
 		mode = MIND_DEVICE_CONTROL
@@ -303,8 +303,8 @@
 	to_chat(user, "<span class='notice'>You switch the device to [mode==MIND_DEVICE_MESSAGE? "TRANSMISSION": "COMMAND"] MODE</span>")
 
 /obj/item/device/abductor/mind_device/afterattack(atom/target, mob/living/user, flag, params)
-	if(!ScientistCheck(user))
-		return
+	// if(!ScientistCheck(user))
+	//	return
 
 	switch(mode)
 		if(MIND_DEVICE_CONTROL)

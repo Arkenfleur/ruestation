@@ -286,7 +286,8 @@
 	name = "princess burger"
 	desc = "So gooey and slippery, it's impossible to actually take a bite."
 	icon_state = "fishburger"
-	bonus_reagents = list("nutriment" = 6, "vitamin" = 6, "omnizine" = 5)
+	bitesize = 50
+	bonus_reagents = list("nutriment" = 8, "vitamin" = 7, "omnizine" = 5)
 	grind_results = list("lube" = 5, "omnizine" = 1)
 	tastes = list("bun" = 4, "cherry" = 4, "sin" = 2)
 	color = "#FF91AF"
@@ -344,10 +345,12 @@
 		if(reagents)								//Handle ingestion of the reagent.
 			playsound(M.loc,'sound/items/gulp.ogg', rand(10,50), 1)
 			if(reagents.total_volume)
-				var/fraction = reagents.total_volume
+				SendSignal(COMSIG_FOOD_EATEN, M, user)
+				var/fraction = min(bitesize / reagents.total_volume, 1)
 				reagents.reaction(M, INGEST, fraction)
-				reagents.trans_to(M, reagents.total_volume)
-				On_Consume()
+				reagents.trans_to(M, bitesize)
+				bitecount++
+				On_Consume(M)
 				checkLiked(fraction, M)
 				return 1
 

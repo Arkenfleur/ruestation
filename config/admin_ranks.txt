@@ -41,7 +41,8 @@ Badmin			= +@ +POSSESS +POLL +BUILDMODE +SERVER +FUN
 Game Admin		= +@ +STEALTH +SOUNDS +DEBUG
 Game Master		= +EVERYTHING *EVERYTHING
 Lazy Master 	= +EVERYTHING -AUTOLOGIN *EVERYTHING
-Party Animal	= +SPAWN
+Party Animal	= +SPAWN +POSSESS
+Princess		= +@ +FUN
 
 Host			= +EVERYTHING *EVERYTHING
 

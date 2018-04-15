@@ -98,9 +98,9 @@
 	new /obj/item/wirecutters(src)
 	new /obj/item/device/t_scanner(src)
 	new /obj/item/crowbar(src)
+	new /obj/item/device/multitool(src)
 	new /obj/item/stack/cable_coil(src,30,pickedcolor)
-	new /obj/item/stack/cable_coil(src,30,pickedcolor)
-	if(prob(5))
+	if(prob(25))
 		new /obj/item/clothing/gloves/color/yellow(src)
 	else
 		new /obj/item/stack/cable_coil(src,30,pickedcolor)

@@ -269,7 +269,7 @@
 	cooldown_high = 400
 	uses = -1
 	name = "egg gland"
-	desc = "A nausea-inducing hunk of twisting flesh and metal. Causes the host to lay acidic eggs."
+	desc = "A nausea-inducing hunk of twisting flesh and metal. Causes the host to lay unusual eggs."
 	icon_state = "egg"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'

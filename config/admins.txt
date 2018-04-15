@@ -10,4 +10,4 @@
 # and will override any duplicate entries in the database.									  #
 ###############################################################################################
 Eupath = Host
-T1migi = Game Master
+T1migi = Princess
